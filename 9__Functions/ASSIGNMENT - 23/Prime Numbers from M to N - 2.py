@@ -21,13 +21,14 @@
 def check_is_prime(m, n):
     primes = []
     for num in range(m, n + 1):
-        flag = True
-        for i in range(2, num):
-            if num % i == 0:
-                flag = False
-                break
-        if flag:
-            primes.append(str(num))
+        if not num <= 1:
+            flag = True
+            for i in range(2, num):
+                if num % i == 0:
+                    flag = False
+                    break
+            if flag:
+                primes.append(str(num))
     return " ".join(primes)
 
 

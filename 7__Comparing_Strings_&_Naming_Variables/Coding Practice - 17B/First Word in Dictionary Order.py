@@ -1,14 +1,14 @@
 word = input()
 
-starter = word
-
-check = ""
+first_word = word
+status = ""
 
 for i in range(len(word)):
-    check += word[i]
+    char = word[i]
+    status += char
 
-    if word[i] == " " or i == word[len(word) - 1]:
-        if check.lower() < starter.lower():
-            starter = check
-        check = ""
-print(starter)
+    if char == " " or i == len(word) - 1:
+        if status.lower() < first_word.lower():
+            first_word = status
+        status = ""
+print(first_word)
