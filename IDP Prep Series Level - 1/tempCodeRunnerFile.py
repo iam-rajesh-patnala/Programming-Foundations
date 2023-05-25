@@ -1,26 +1,30 @@
-def check_words_equal(word1, word2):
-#     if (word1 == word2):
-#         return "Yes"
-#     else:
-#         return "No"
+def word_rotation(word, vowels):
 
-# def swap(first_input, second_input):
-#     first_input_list = list(first_input)
-#     second_input_list = list(second_input)
-#     for i in range(len(first_input_list) - 1):
-#         if first_input_list[i] != second_input_list[i]:
-#             flag = first_input_list[i]
-#             first_input_list[i] = first_input_list[i+1]
-#             first_input_list[i+1] = flag
-#             break
-#         equal = check_words_equal(first_input_list, second_input_list)
-#         return equal
+    result = []
+    for i in range(len(word)):
+        if word[i] in vowels:
+            result.append(word[i:])
+        else:
+            result.append(word[i])
+    return result
 
 
-# def first_case():
-#     first_input = input()
-#     second_input = input()
-#     result = swap(first_input, second_input)
-#     print(result)
+def check_vowels_in_word(normal_word, vowels):
+    rotation_word = []
+    vowels_not_in_list = True
+    for word in normal_word:
+        for char in list(word):
+            if char in vowels:
+                vowels_not_in_list = False
+        if vowels_not_in_list:
+            rotation_word.append(word)
+        else:
+            val = word_rotation(word, vowels)
+            rotation_word.extend(val)
+        
+                
 
-# first_case()
+    print(*rotation_word)
+normal_word = input().split()
+vowels = ["a","e","i","o","u"]
+check_vowels_in_word(normal_word, vowels)
